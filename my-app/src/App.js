@@ -1,18 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      component: 'home'
+    }
+    this.currentView = this.currentView.bind(this)
+    this.chooseView = this.chooseView.bind(this)
+  }
+
+  chooseView(display) {
+    this.setState({component: display})
+  }
+  
+  currentView() {
+    let component
+    switch(this.state.component){
+      case 'home':
+        component = <Homepage/>
+          break;
+      case 'component b':
+        component = <ComponentB/>
+          break;
+      default:
+        component = <Homepage/>
+    }
+  }
+  
+  
+  
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+
+
       </div>
     );
   }
